@@ -1,0 +1,12 @@
+﻿<UserControl xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"  x:Class="SmartDialer.adWhirlRenderer"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="55" d:DesignWidth="480">
+
+    <Grid x:Name="LayoutRoot" Height="55" Width="480">
+        <phone:WebBrowser Name="brsAds" IsScriptEnabled="True"  Margin="0,0,0,0" Navigating="brsAds_Navigating" ScriptNotify="brsAds_ScriptNotify" Width="480" Height="55" />
+    </Grid>
+</UserControl>

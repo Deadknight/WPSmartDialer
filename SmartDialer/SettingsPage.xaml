@@ -1,0 +1,211 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="SmartDialer.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DataContext="{d:DesignData SampleData/MainViewModelSampleData.xaml}"
+    xmlns:local="clr-namespace:SmartDialer"
+    xmlns:moad="clr-namespace:MoAds;assembly=MoAds"
+    xmlns:admob="clr-namespace:Google.AdMob.Ads.WindowsPhone7.WPF;assembly=Google.AdMob.Ads.WindowsPhone7"
+    xmlns:adRotator="clr-namespace:AdRotator;assembly=AdRotator"
+    xmlns:c4f="clr-namespace:Coding4Fun.Phone.Controls;assembly=Coding4Fun.Phone.Controls"
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="696" 
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait" 
+    shell:SystemTray.IsVisible="True">
+
+    <phone:PhoneApplicationPage.Resources>
+        <local:Model x:Key="Model"/>
+    </phone:PhoneApplicationPage.Resources>
+            <!--Data context is set to sample data above and first item in sample data collection below and LayoutRoot contains the root grid where all other page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent" d:DataContext="{Binding Items[0]}">
+<!--Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions-->
+        <controls:Pivot Title="SmartDialer By Deadknight">
+            <controls:PivotItem Header="General" Margin="0,0,0,0">
+                <!--ContentPanel contains Settings text. Place additional content here-->
+                <StackPanel>
+                <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,-10,12,0">
+                    <StackPanel>
+                        <TextBlock Name="txtCacheDuration" Text="Cache refresh duration in seconds" Style="{StaticResource PhoneTextSmallStyle}"></TextBlock>
+                        <TextBox Name="txtBoxCacheDuration" InputScope="TelephoneNumber" KeyDown="NumberCheckTextBox_KeyDown"></TextBox>
+                        <Button Name="butClearCache" Content="Clear Cache Now!" Click="butClearCache_Click"></Button>
+                        <TextBlock  Name="txtDelayDuration" Text="Button delay duration for contact update (in ms)" Style="{StaticResource PhoneTextSmallStyle}"></TextBlock>
+                        <TextBlock  Name="txtDelayDurationInfo" Text="Don't edit if you dont know what you are doing" Style="{StaticResource PhoneTextSmallStyle}"></TextBlock>
+                        <TextBox Name="txtBoxDelayDuration" InputScope="TelephoneNumber" KeyDown="NumberCheckTextBox_KeyDown"></TextBox>
+                        <CheckBox Name="CheckUpdates" Content="Check For Updates" IsThreeState="True" ></CheckBox>
+                        <CheckBox Name="CheckThemeUpdates" Content="Check Theme Updates" IsThreeState="True" ></CheckBox>
+                        </StackPanel>
+                </Grid>
+                <!--local:adMobRenderer Height="55" UseGps="True" PublisherID="a14e7864ad3b370" Width="480" TestMode="False"/-->
+                <!--moad:AdDisplay
+                    Height="70"
+                    VerticalAlignment="Top"
+                    Foreground="White"
+                    RefreshSeconds="30">
+                    <moad:AdDisplay.AdAdapter>
+                        <moad:AdMobAdapter
+                            PublisherId="a14e7864ad3b370"
+                            CookieString="Sombrenuit"
+                            AdKeywords=""
+                            UseTestMode="False" GotAdResponse="AdMobAdapter_GotAdResponse" GotError="AdMobAdapter_GotError" />
+                        </moad:AdDisplay.AdAdapter>
+                </moad:AdDisplay-->
+                    <!--local:adWhirlRenderer Height="55" UseGps="True" PublisherID="584b8e9466da45f5b70fb78aa5e26684" ClientId="1" AppVer="200" Width="480" TestMode="False"/-->
+                    <!--admob:BannerAd x:Name="AdMobAd"
+                    AdUnitID="a14e7864ad3b370">
+                    </admob:BannerAd-->
+                </StackPanel>
+            </controls:PivotItem>
+            <controls:PivotItem Header="Theme" Margin="0,0,0,0">
+                <StackPanel>
+                <toolkit:ListPicker
+                    Name="ListPickerTheme"
+                    DataContext="{StaticResource Model}" 
+                    ItemsSource="{Binding Themes}"
+                    FullModeHeader="Theme"
+                    CacheMode="BitmapCache"
+                    Header="Theme"
+                    SelectionChanged="ListPickerTheme_SelectionChanged">
+                </toolkit:ListPicker>
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox Name="SoundFeedback" Content="Sound Feed" IsThreeState="False" ></CheckBox>
+                    <CheckBox Name="HapticFeedback" Content="Haptic Feed" IsThreeState="False" ></CheckBox>
+                </StackPanel>
+                <CheckBox Name="DefaultSIP" Content="Use Default Input Panel(Disables Theme)" IsThreeState="False"></CheckBox>
+                <toolkit:ListPicker
+                Name="ListPickerLanguages"
+                DataContext="{StaticResource Model}" 
+                ItemsSource="{Binding Languages}"
+                FullModeHeader="Languages"
+                CacheMode="BitmapCache"
+                Header="Languages"
+                Margin="10,-15, 10, 0"
+                SelectionMode="Multiple" SelectionChanged="ListPickerLanguages_SelectionChanged">
+                </toolkit:ListPicker>
+                <TextBlock Text="Height Margin" Margin="10, 0, 0, 0"></TextBlock>
+                <TextBox Name="txtBoxThemeButtonHeightMargin">
+                <TextBox.InputScope>
+                    <InputScope>
+                        <InputScopeName NameValue="TelephoneNumber"/>
+                    </InputScope>
+                </TextBox.InputScope>
+                </TextBox>
+
+                        <!--Button Name="InstallCustomTheme" Content="Install Custom Theme"></Button-->
+                <!--moad:AdDisplay
+                Height="70"
+                VerticalAlignment="Top"
+                Foreground="White"
+                RefreshSeconds="30">
+                    <moad:AdDisplay.AdAdapter>
+                        <moad:AdMobAdapter
+                        PublisherId="a14e7864ad3b370"
+                        CookieString="Sombrenuit"
+                        AdKeywords=""
+                        UseTestMode="False"/>
+                    </moad:AdDisplay.AdAdapter>
+                </moad:AdDisplay-->
+                </StackPanel>                    
+            </controls:PivotItem>
+            <controls:PivotItem Header="Theme" Margin="0,0,0,0">
+                <StackPanel>
+                    <c4f:ColorPicker Name="colorPicker" Height="250"></c4f:ColorPicker>
+                <StackPanel Orientation="Horizontal">
+                    <Button Name="butChangeTextColor" Content="Change Text Color" FontSize="16" Click="butChangeTextColor_Click"></Button>
+                    <Button Name="butClearTextColor" Content="Clear Text Color" FontSize="16" Click="butClearTextColor_Click"></Button>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                        <Button Name="butChangeTextColorSecond" Content="Change Second Text Color" FontSize="16" Click="butChangeTextColorSecond_Click"></Button>
+                        <Button Name="butClearTextColorSecond" Content="Clear Second Text Color" FontSize="16" Click="butClearTextColorSecond_Click"></Button>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button Name="butChooseBackground" Content="Choose Background Photo" FontSize="16" Click="butChooseBackground_Click"></Button>
+                    <Button Name="butClearBackground" Content="Clear Background Photo" FontSize="16" Click="butClearBackground_Click"></Button>
+                </StackPanel>
+                </StackPanel>
+            </controls:PivotItem>
+            <controls:PivotItem Header="Search" Margin="0,0,0,0">
+                <StackPanel>
+                    <CheckBox Name="OnlyPhones" Margin="0,-5,0,0" Content="Contacts With Phones Only" IsThreeState="False"></CheckBox>
+                    <CheckBox Name="CallHistory" Margin="0,-5,0,0" Content="Display Call History" IsThreeState="False"></CheckBox>
+                    <CheckBox Name="CallHistoryFilter" Margin="0,-5,0,0" Content="Filter Call History From Contacts" IsThreeState="False"></CheckBox>
+                    <CheckBox Name="UseThreading" Margin="0,-5,0,0" Content="Use Threading To Search Contacts" IsThreeState="False"></CheckBox>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Margin="10,-15,0,0"  Text="Thread Count (Experimental, must be inside 1-20)"></TextBlock>
+                        <TextBox Name="txtBoxThreadCount" Margin="0, -10, 0, 0">
+                            <TextBox.InputScope>
+                                <InputScope>
+                                    <InputScopeName NameValue="TelephoneNumber"/>
+                                </InputScope>
+                            </TextBox.InputScope>
+                        </TextBox>
+                        <TextBlock Margin="10,-10,0,0"  Text="Default value is good for most people but, you can "></TextBlock>
+                        <TextBlock Margin="10,0,0,0"  Text="experiment it."></TextBlock>
+                        <TextBlock Margin="10,0,0,0"  Text="Contact View Limit (0 limitless, minimum 16)"></TextBlock>
+                        <TextBox Name="txtBoxViewLimit" Margin="0, -10, 0, 0">
+                            <TextBox.InputScope>
+                                <InputScope>
+                                    <InputScopeName NameValue="TelephoneNumber"/>
+                                </InputScope>
+                            </TextBox.InputScope>
+                        </TextBox>                        
+                    </StackPanel>
+                </StackPanel>
+            </controls:PivotItem>
+            <controls:PivotItem Header="About">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Smart Dialer v"></TextBlock>
+                        <TextBlock DataContext="{StaticResource Model}" Text="{Binding Version}"></TextBlock>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                    <Image Source="Sombrenuit.png" Stretch="Uniform" Height="48" Width="48"></Image>
+                        <HyperlinkButton NavigateUri="http://www.sombrenuit.org" TargetName="_blank">Sombrenuit</HyperlinkButton>
+                        <HyperlinkButton NavigateUri="http://www.alangoya.com" TargetName="_blank">Alangoya</HyperlinkButton>
+                        <HyperlinkButton Name="ChangeLog" Click="ChangeLog_Click">Change Log</HyperlinkButton>
+                    </StackPanel>
+                    <TextBlock Text="Smart dialer is designed by Deadknight to replace missing functionality on Windows Phone 7 about smart dialing." TextWrapping="Wrap" Grid.Row="0"></TextBlock>
+                    <TextBlock Text="For more information visit:" TextWrapping="Wrap" Grid.Row="1"></TextBlock>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <HyperlinkButton NavigateUri="http://forum.xda-developers.com/showthread.php?t=1250411" TargetName="_blank">Xda Developers Site</HyperlinkButton>
+                        <HyperlinkButton NavigateUri="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=RDLT7UG27AFPS" TargetName="_blank">Donate</HyperlinkButton>
+                    </StackPanel>
+                    <TextBlock Text=" "></TextBlock>
+                    <TextBlock Text="Thanks to my patient love Nymphel and my family."></TextBlock>
+                    <TextBlock FontSize="16" Text="All of the content on this application is covered under Canadian, US and international copyright and trademark laws by Deadknight, and are property of Deadknight, or are presented with permission and/or under license. This content may not be used for any commercial use without express written permission of Deadknight, and possibly other copyright or trademark owners." TextWrapping="Wrap"></TextBlock>
+                    <TextBlock FontSize="16" Text="Resource trademarks are the property of their respective owners." TextWrapping="Wrap"></TextBlock>
+                </StackPanel>
+            </controls:PivotItem>
+        </controls:Pivot>
+        <!--admob:BannerAd x:Name="AdMobAd2"
+                AdUnitID="a14e7864ad3b370"
+                        Margin="0,605,0,0">
+        </admob:BannerAd-->
+        <adRotator:AdRotatorControl x:Name="AdRotatorControl" Width="480" Height="80"
+            DefaultSettingsFileUri="/SmartDialer;component/defaultAdSettings.xml"
+            SettingsUrl="http://www.sombrenuit.org/smartdialer/adSettings.xml"
+            AdDuplexAppId="4687"
+            AdMobAdUnitId="a14e7864ad3b370"
+            DefaultAdType="AdMob"
+            Margin="0,605,0,0">            
+        </adRotator:AdRotatorControl>
+    </Grid>
+    <!--Sample code showing usage of ApplicationBar-->
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton IconUri="/button/appbar.save.rest.png" Text="Save" Click="ApplicationBarIconButton_Click_1" />
+            <shell:ApplicationBarIconButton IconUri="/button/appbar.cancel.rest.png" Text="Cancel" Click="ApplicationBarIconButton_Click" />
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+</phone:PhoneApplicationPage>

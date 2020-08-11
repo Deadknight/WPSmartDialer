@@ -1,0 +1,336 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9CE04BF6-C7FF-47FB-9620-197998DC20A0}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SmartDialer</RootNamespace>
+    <AssemblyName>SmartDialer</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <TargetFrameworkProfile>WindowsPhone71</TargetFrameworkProfile>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>SmartDialer.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>SmartDialer.App</SilverlightAppEntry>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>TRACE;DEBUG;SILVERLIGHT;WINDOWS_PHONE;NO_MAIN_ADS</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE;NO_MAIN_ADS</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release-NonMarket|AnyCPU'">
+    <OutputPath>bin\Release-NonMarket\</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE;NONMARKET</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>Bin\Release\SmartDialer.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AdDuplex.AdControl.Silverlight">
+      <HintPath>..\Libraries\AdDuplex.AdControl.Silverlight.dll</HintPath>
+    </Reference>
+    <Reference Include="AdRotator">
+      <HintPath>..\Libraries\AdRotator.dll</HintPath>
+    </Reference>
+    <Reference Include="Coding4Fun.Phone.Controls">
+      <HintPath>..\Libraries\Coding4Fun.Phone.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Coding4Fun.Phone.Controls.Toolkit">
+      <HintPath>..\Libraries\Coding4Fun.Phone.Controls.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Coding4Fun.Phone.Site.Controls">
+      <HintPath>..\Libraries\Coding4Fun.Phone.Site.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.AdMob.Ads.WindowsPhone7">
+      <HintPath>..\Libraries\Google.AdMob.Ads.WindowsPhone7.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Advertising.Mobile.UI, Version=2.1.11120.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\Microsoft.Advertising.Mobile.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Phone" />
+    <Reference Include="Microsoft.Phone.Controls, Version=7.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Phone.Controls.Toolkit">
+      <HintPath>..\Libraries\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Phone.Interop" />
+    <Reference Include="Microsoft.Practices.Prism">
+      <HintPath>..\Libraries\Microsoft.Practices.Prism.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism.Interactivity">
+      <HintPath>..\Libraries\Microsoft.Practices.Prism.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework" />
+    <Reference Include="MoAds">
+      <HintPath>..\Libraries\MoAds.dll</HintPath>
+    </Reference>
+    <Reference Include="NavigationListControl">
+      <HintPath>..\Libraries\NavigationListControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Device" />
+    <Reference Include="System.Observable" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Servicemodel.Web" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Xml" />
+    <Reference Include="mscorlib.extensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeLog.cs" />
+    <Compile Include="LanguageHelper.cs" />
+    <Compile Include="PatternCache.cs" />
+    <Compile Include="ScrollViewerMonitor.cs" />
+    <Compile Include="UpdateChecker.cs" />
+    <Compile Include="ContactDataSaver.cs" />
+    <Compile Include="ContactDataStorage.cs" />
+    <Compile Include="ResourceHelper.cs" />
+    <Compile Include="SettingsPage.xaml.cs">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Glob.cs" />
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StringExtensions.cs" />
+    <Compile Include="ToastPrompt.cs" />
+    <Compile Include="ViewModels\CustomViewModel.cs" />
+    <Compile Include="DownloadStringCompletedEventArgs.cs" />
+    <Compile Include="ViewModels\ItemViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="PostClient.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+    <Page Include="SettingsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <DesignData Include="SampleData\MainViewModelSampleData.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </DesignData>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\AppManifest.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\WMAppManifest.xml">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Themes\RU-Metro\0.png" />
+    <Resource Include="Themes\RU-Metro\1.png" />
+    <Resource Include="Themes\RU-Metro\2.png" />
+    <Resource Include="Themes\RU-Metro\3.png" />
+    <Resource Include="Themes\RU-Metro\4.png" />
+    <Resource Include="Themes\RU-Metro\5.png" />
+    <Resource Include="Themes\RU-Metro\6.png" />
+    <Resource Include="Themes\RU-Metro\7.png" />
+    <Resource Include="Themes\RU-Metro\8.png" />
+    <Resource Include="Themes\RU-Metro\9.png" />
+    <Resource Include="Themes\RU-Metro\call.png" />
+    <Resource Include="Themes\RU-Metro\callhistory.png" />
+    <Resource Include="Themes\RU-Metro\del.png" />
+    <Resource Include="Themes\RU-Metro\empty.png" />
+    <Resource Include="Themes\RU-Metro\number.png" />
+    <Resource Include="Themes\RU-Metro\people.png" />
+    <Resource Include="Themes\RU-Metro\star.png" />
+    <Resource Include="Themes\RU-Htc-Variant\0.png" />
+    <Resource Include="Themes\RU-Htc-Variant\1.png" />
+    <Resource Include="Themes\RU-Htc-Variant\2.png" />
+    <Resource Include="Themes\RU-Htc-Variant\3.png" />
+    <Resource Include="Themes\RU-Htc-Variant\4.png" />
+    <Resource Include="Themes\RU-Htc-Variant\5.png" />
+    <Resource Include="Themes\RU-Htc-Variant\6.png" />
+    <Resource Include="Themes\RU-Htc-Variant\7.png" />
+    <Resource Include="Themes\RU-Htc-Variant\8.png" />
+    <Resource Include="Themes\RU-Htc-Variant\9.png" />
+    <Resource Include="Themes\RU-Htc-Variant\call.png" />
+    <Resource Include="Themes\RU-Htc-Variant\callhistory.png" />
+    <Resource Include="Themes\RU-Htc-Variant\del.png" />
+    <Resource Include="Themes\RU-Htc-Variant\number.png" />
+    <Resource Include="Themes\RU-Htc-Variant\sms.png" />
+    <Resource Include="Themes\RU-Htc-Variant\star.png" />
+    <Resource Include="Button\appbar.add.rest.light.png" />
+    <Resource Include="Button\appbar.add.rest.png" />
+    <Content Include="Button\appbar.call.rest.png" />
+    <Content Include="ApplicationIcon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Themes\weeezel-whiteone\0.png" />
+    <Resource Include="Themes\weeezel-whiteone\1.png" />
+    <Resource Include="Themes\weeezel-whiteone\2.png" />
+    <Resource Include="Themes\weeezel-whiteone\3.png" />
+    <Resource Include="Themes\weeezel-whiteone\4.png" />
+    <Resource Include="Themes\weeezel-whiteone\5.png" />
+    <Resource Include="Themes\weeezel-whiteone\6.png" />
+    <Resource Include="Themes\weeezel-whiteone\7.png" />
+    <Resource Include="Themes\weeezel-whiteone\8.png" />
+    <Resource Include="Themes\weeezel-whiteone\9.png" />
+    <Resource Include="Themes\weeezel-whiteone\call.png" />
+    <Resource Include="Themes\weeezel-whiteone\callhistory.png" />
+    <Resource Include="Themes\weeezel-whiteone\del.png" />
+    <Resource Include="Themes\weeezel-whiteone\number.png" />
+    <Resource Include="Themes\weeezel-whiteone\people.png" />
+    <Resource Include="Themes\weeezel-whiteone\star.png" />
+    <Resource Include="Themes\adiliyo\0.png" />
+    <Resource Include="Themes\adiliyo\1.png" />
+    <Resource Include="Themes\adiliyo\2.png" />
+    <Resource Include="Themes\adiliyo\3.png" />
+    <Resource Include="Themes\adiliyo\4.png" />
+    <Resource Include="Themes\adiliyo\5.png" />
+    <Resource Include="Themes\adiliyo\6.png" />
+    <Resource Include="Themes\adiliyo\7.png" />
+    <Resource Include="Themes\adiliyo\8.png" />
+    <Resource Include="Themes\adiliyo\9.png" />
+    <Resource Include="Themes\adiliyo\call.png" />
+    <Resource Include="Themes\adiliyo\callhistory.png" />
+    <Resource Include="Themes\adiliyo\del.png" />
+    <Resource Include="Themes\adiliyo\number.png" />
+    <Resource Include="Themes\adiliyo\people.png" />
+    <Resource Include="Themes\adiliyo\star.png" />
+    <Resource Include="Themes\Metro\0.png" />
+    <Resource Include="Themes\Metro\1.png" />
+    <Resource Include="Themes\Metro\2.png" />
+    <Resource Include="Themes\Metro\3.png" />
+    <Resource Include="Themes\Metro\4.png" />
+    <Resource Include="Themes\Metro\5.png" />
+    <Resource Include="Themes\Metro\6.png" />
+    <Resource Include="Themes\Metro\7.png" />
+    <Resource Include="Themes\Metro\8.png" />
+    <Resource Include="Themes\Metro\9.png" />
+    <Resource Include="Themes\Metro\call.png" />
+    <Resource Include="Themes\Metro\callhistory.png" />
+    <Resource Include="Themes\Metro\del.png" />
+    <Resource Include="Themes\Metro\empty.png" />
+    <Resource Include="Themes\Metro\number.png" />
+    <Resource Include="Themes\Metro\people.png" />
+    <Resource Include="Themes\Metro\star.png" />
+    <Resource Include="Themes\HtcRest\0.png" />
+    <Resource Include="Themes\HtcRest\1.png" />
+    <Resource Include="Themes\HtcRest\2.png" />
+    <Resource Include="Themes\HtcRest\3.png" />
+    <Resource Include="Themes\HtcRest\4.png" />
+    <Resource Include="Themes\HtcRest\5.png" />
+    <Resource Include="Themes\HtcRest\6.png" />
+    <Resource Include="Themes\HtcRest\7.png" />
+    <Resource Include="Themes\HtcRest\8.png" />
+    <Resource Include="Themes\HtcRest\9.png" />
+    <Resource Include="Themes\HtcRest\call.png" />
+    <Resource Include="Themes\HtcRest\callhistory.png" />
+    <Resource Include="Themes\HtcRest\del.png" />
+    <Resource Include="Themes\HtcRest\number.png" />
+    <Resource Include="Themes\HtcRest\people.png" />
+    <Resource Include="Themes\HtcRest\star.png" />
+    <Resource Include="Themes\Retro\0.png" />
+    <Resource Include="Themes\Retro\1.png" />
+    <Resource Include="Themes\Retro\2.png" />
+    <Resource Include="Themes\Retro\3.png" />
+    <Resource Include="Themes\Retro\4.png" />
+    <Resource Include="Themes\Retro\5.png" />
+    <Resource Include="Themes\Retro\6.png" />
+    <Resource Include="Themes\Retro\7.png" />
+    <Resource Include="Themes\Retro\8.png" />
+    <Resource Include="Themes\Retro\9.png" />
+    <Resource Include="Themes\Retro\call.png" />
+    <Resource Include="Themes\Retro\callhistory.png" />
+    <Resource Include="Themes\Retro\del.png" />
+    <Resource Include="Themes\Retro\number.png" />
+    <Resource Include="Themes\Retro\people.png" />
+    <Content Include="Button\appbar.cancel.rest.png" />
+    <Content Include="Button\appbar.delete.rest.png" />
+    <Resource Include="Button\appbar.feature.email.rest.png" />
+    <Resource Include="Button\appbar.feature.email.rest.light.png" />
+    <Content Include="Button\appbar.save.rest.png" />
+    <Resource Include="Button\grayarrow.png" />
+    <Resource Include="Button\greenarrow.png" />
+    <Content Include="Button\showhide.png" />
+    <Resource Include="Themes\Retro\star.png" />
+    <Resource Include="Sombrenuit.png" />
+    <Resource Include="defaultAdSettings.xml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Content Include="sounds\dtmf-0.mp3" />
+    <Content Include="sounds\dtmf-1.mp3" />
+    <Content Include="sounds\dtmf-2.mp3" />
+    <Content Include="sounds\dtmf-3.mp3" />
+    <Content Include="sounds\dtmf-4.mp3" />
+    <Content Include="sounds\dtmf-5.mp3" />
+    <Content Include="sounds\dtmf-6.mp3" />
+    <Content Include="sounds\dtmf-7.mp3" />
+    <Content Include="sounds\dtmf-8.mp3" />
+    <Content Include="sounds\dtmf-9.mp3" />
+    <Content Include="sounds\dtmf-hash.mp3" />
+    <Content Include="sounds\dtmf-star.mp3" />
+    <Content Include="SplashScreenImage.jpg" />
+    <Content Include="Background.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions />
+</Project>
